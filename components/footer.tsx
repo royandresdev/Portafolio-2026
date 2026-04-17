@@ -1,17 +1,14 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-black-2 py-16 px-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           {/* Logo and Tagline Section */}
-          <div className="flex flex-col gap-6 max-w-md">
+          <div className="flex items-center gap-6 max-w-md">
             {/* Logo Placeholder */}
-            <div className="h-12 w-48 flex items-center">
-              {/* Logo will be placed here */}
-              <div className="text-gray-4 text-sm border border-dashed border-gray-2 p-2 rounded">
-                Logo Placeholder
-              </div>
-            </div>
+            <Image src="/logo.svg" alt="Logo" height={48} width={43} loading="eager" />
             <p className="text-white text-sm leading-relaxed max-w-[300px]">
               Simplificando tu salto al mundo digital
             </p>
