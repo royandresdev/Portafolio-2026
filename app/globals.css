@@ -27,3 +27,7 @@
 @utility label-heading {
   @apply block text-gray-4 text-sm tracking-[20%];
 }
+
+h2 {
+  @apply text-5xl font-bold text-primary;
+}
