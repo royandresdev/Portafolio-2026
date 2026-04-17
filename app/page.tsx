@@ -8,7 +8,7 @@ import { Skills } from "@/components/skills";
 
 export default function Home() {
   return (
-    <main className="background font-dm-sans">
+    <main className="background font-dm-sans space-y-24">
       <Header />
       <Hero />
       <Suspense fallback={<p className="text-center py-10 text-gray-4">Cargando proyectos...</p>}>

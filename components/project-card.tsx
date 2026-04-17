@@ -15,7 +15,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ name, description, image, technologies, linkDemo, linkRepo }: ProjectCardProps) {
   return (
-    <article className="w-full h-full bg-black-3 rounded-[32px] pb-6 shadow-lg flex flex-col border border-black-3">
+    <article className="w-full h-full bg-black-3 rounded-[32px] pb-6 custom-shadow flex flex-col border border-black-3">
       <div className="w-full aspect-video relative overflow-hidden rounded-t-[32px]">
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
@@ -30,7 +30,7 @@ export function ProjectCard({ name, description, image, technologies, linkDemo, 
           href={linkDemo}
           target="_blank"
           rel="noopener noreferrer"
-          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold shadow text-center hover:bg-gray-2 transition-colors flex items-center justify-center gap-2"
+          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold custom-shadow text-center hover:bg-gray-2 transition-colors flex items-center justify-center gap-2"
         >
           <Icon icon="bi:easel-fill" fontSize={16} /> En vivo
         </a>
@@ -38,7 +38,7 @@ export function ProjectCard({ name, description, image, technologies, linkDemo, 
           href={linkRepo}
           target="_blank"
           rel="noopener noreferrer"
-          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold shadow text-center hover:bg-gray-2 transition-colors flex items-center justify-center gap-2"
+          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold custom-shadow text-center hover:bg-gray-2 transition-colors flex items-center justify-center gap-2"
         >
           <Icon icon="bi:github" fontSize={16} /> Repositorio
         </a>

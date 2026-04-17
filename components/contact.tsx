@@ -18,10 +18,10 @@ const ContactSchema = Yup.object().shape({
 
 export function Contact() {
   return (
-    <section className="container mx-auto px-6 py-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-start">
+    <section className="container mx-auto px-6 py-24 max-w-[1280px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
         {/* Columna Izquierda: Formulario */}
-        <div className="bg-black-3 border border-gray-2 rounded-[32px] p-8 lg:p-16 backdrop-blur-[2px] shadow-lg w-full">
+        <div className="bg-black-3 border border-gray-2 rounded-[32px] px-8 py-16 backdrop-blur-[2px] custom-shadow w-full">
           <Formik
             initialValues={{ nombre: "", correo: "", mensaje: "" }}
             validationSchema={ContactSchema}
@@ -76,7 +76,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-gray-1 border border-gray-2 py-4 rounded-lg shadow-md text-gray-5 font-semibold uppercase hover:bg-gray-2 transition-colors disabled:opacity-50"
+                  className="bg-gray-1 border border-gray-2 py-4 rounded-lg custom-shadow text-gray-5 font-semibold uppercase hover:bg-gray-2 transition-colors disabled:opacity-50"
                 >
                   {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                 </button>
@@ -86,7 +86,7 @@ export function Contact() {
         </div>
 
         {/* Columna Derecha: Info de Contacto */}
-        <div className="flex flex-col gap-8 lg:pl-12">
+        <div className="flex flex-col gap-8">
           <h2 className="text-5xl font-bold text-primary uppercase leading-tight">
             Contacto
           </h2>

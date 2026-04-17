@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-black-2 py-16 px-6">
-      <div className="container mx-auto">
+    <footer className="bg-black-2 py-16">
+      <div className="container max-w-[1280px] px-6 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           {/* Logo and Tagline Section */}
           <div className="flex items-center gap-6 max-w-md">

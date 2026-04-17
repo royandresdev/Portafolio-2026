@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="h-screen min-h-[700px] flex items-center px-6 container mx-auto justify-center gap-6">
+    <section className="h-screen min-h-[700px] flex items-center px-6 container max-w-[1280px] mx-auto justify-center gap-6">
       <Image src="/Avatar-Portafolio.png" alt="Avatar" width={500} height={500} loading="eager" />
       <div className="space-y-6 max-w-[600px]">
         <span className="label-heading">-MI NOMBRE ES</span>

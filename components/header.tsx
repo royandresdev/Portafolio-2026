@@ -3,8 +3,8 @@ import Image from "next/image";
 export function Header() {
   return (
     <div className="w-full bg-[#0000001a] backdrop-blur-[2px] fixed top-0 z-50">
-      <header className="relative flex justify-center items-center h-18 container mx-auto px-6">
-        <div className="absolute left-0">
+      <header className="relative flex justify-center items-center h-18 container mx-auto px-6 max-w-[1280px]">
+        <div className="absolute left-6">
           <Image src="/logo.svg" alt="Logo" height={48} width={43} loading="eager" />
         </div>
         <nav>

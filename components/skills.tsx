@@ -11,7 +11,7 @@ const techs = [
 
 export function Skills() {
   return (
-    <section className="container mx-auto px-6">
+    <section className="container mx-auto max-w-[1280px] px-6">
       <span className="label-heading mb-4">- MIS HABILIDADES</span>
       <h2 className="mb-4">EDUCACIÓN Y HABILIDADES</h2>
       <p className="text-gray-4 mb-16">
@@ -19,7 +19,7 @@ export function Skills() {
         diferentes áreas, lo que me ha permitido adquirir conocimientos y
         habilidades en diversas tecnologías.
       </p>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 gap-18">
         {/* Formación Académica */}
         <div className="space-y-8">
           <h3 className="text-[32px] text-primary font-medium mb-8">Formación Académica</h3>
@@ -55,7 +55,7 @@ export function Skills() {
 
 function CarouselSkills() {
   return (
-    <div className="bg-black-3 border border-gray-2 rounded-[32px] py-6 flex flex-wrap justify-center gap-x-12 gap-y-8 items-center">
+    <div className="bg-black-3 border px-6 w-fit border-gray-2 rounded-[32px] py-6 flex flex-wrap justify-center gap-6 items-center custom-shadow">
       {techs.map((tech) => (
         <div key={tech.name} className="flex flex-col items-center gap-3 transition-transform hover:scale-110">
           <div className="size-16 flex items-center justify-center">
