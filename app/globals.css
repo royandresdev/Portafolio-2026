@@ -23,3 +23,7 @@
 @utility background {
   background: linear-gradient(136deg, rgba(0, 255, 163, 0.05) 0%, rgba(0, 255, 163, 0.00) 100%), #151515;
 }
+
+@utility label-heading {
+  @apply block text-gray-4 text-sm tracking-[20%];
+}

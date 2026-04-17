@@ -5,7 +5,7 @@ export function Hero() {
 
       </div>
       <div className="space-y-6 max-w-[600px]">
-        <span className="block text-gray-4 text-sm tracking-[20%]">-MI NOMBRE ES</span>
+        <span className="label-heading">-MI NOMBRE ES</span>
         <h1 className="text-5xl/14 font-bold">
           <span className="text-primary">ROY HUAMAN</span> <br />
           <span>FULLSTACK DEVELOPER</span>
