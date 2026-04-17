@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 
 export function Hero() {
@@ -13,6 +14,14 @@ export function Hero() {
         <p className="text-gray-4 font-medium text-lg">
           ¡Bienvenido! Soy un entusiasta de la programación. Desde siempre me ha fascinado entender cómo funciona el software. Al codificar, siento que tengo la libertad de explotar al máximo mi creatividad, creando código sólido y profesional.
         </p>
+        <div className="flex gap-4">
+          <a href="https://github.com/royandresdev" target="_blank" className="flex items-center gap-2" aria-label="GitHub">
+            <Icon icon="bi:github" fontSize={32} className="text-gray-4" />
+          </a>
+          <a href="https://www.linkedin.com/in/royhuamanavila" target="_blank" className="flex items-center gap-2" aria-label="LinkedIn">
+            <Icon icon="mdi:linkedin" fontSize={32} className="text-gray-4" />
+          </a>
+        </div>
       </div>
     </section>
   );
