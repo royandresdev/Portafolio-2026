@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 interface ProjectCardProps {
-  id: string;
-  created_at: Date;
+  id: number | string;
+  created_at: string | Date;
   name: string;
   description: string;
   image: string;
@@ -10,11 +12,11 @@ interface ProjectCardProps {
   linkFigma?: string;
 }
 
-export function ProjectCard({ name, description, image, technologies, linkDemo, linkRepo, linkFigma }: ProjectCardProps) {
+export function ProjectCard({ name, description, image, technologies, linkDemo, linkRepo }: ProjectCardProps) {
   return (
-    <article className="w-full bg-black-3 rounded-[32px] pb-6 shadow-lg">
-      <div className="w-full aspect-video">
-        {/* <Image src={image} alt={name} width={500} height={200} /> */}
+    <article className="w-full h-full bg-black-3 rounded-[32px] pb-6 shadow-lg flex flex-col">
+      <div className="w-full aspect-video relative overflow-hidden rounded-t-[32px]">
+        <Image src={image} alt={name} fill className="object-cover" />
       </div>
       <div className="p-6 space-y-4">
         <h3 className="text-gray-5 uppercase font-bold text-2xl">{name}</h3>
@@ -22,9 +24,23 @@ export function ProjectCard({ name, description, image, technologies, linkDemo, 
         <Tags technologies={technologies} />
         <p className="text-gray-4">{description}</p>
       </div>
-      <div className="grid grid-cols-2 gap-2 px-6">
-        <button className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold shadow">En vivo</button>
-        <button className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold shadow">Repositorio</button>
+      <div className="grid grid-cols-2 gap-2 px-6 mt-auto">
+        <a
+          href={linkDemo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold shadow text-center hover:bg-gray-2 transition-colors"
+        >
+          En vivo
+        </a>
+        <a
+          href={linkRepo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold shadow text-center hover:bg-gray-2 transition-colors"
+        >
+          Repositorio
+        </a>
       </div>
     </article>
   )
