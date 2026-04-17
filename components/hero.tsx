@@ -1,9 +1,9 @@
+import Image from "next/image";
+
 export function Hero() {
   return (
     <section className="h-screen min-h-[700px] flex items-center px-6 container mx-auto justify-center gap-6">
-      <div className="bg-radial from-[#5BFFC0] to-[#0ACF83] size-[500px] rounded-full shadow">
-
-      </div>
+      <Image src="/avatar-profile.png" alt="Avatar" width={500} height={500} loading="eager" />
       <div className="space-y-6 max-w-[600px]">
         <span className="label-heading">-MI NOMBRE ES</span>
         <h1 className="text-5xl/14 font-bold">
