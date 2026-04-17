@@ -1,3 +1,14 @@
+import { Icon } from "@iconify/react";
+
+const techs = [
+  { name: "React", icon: "logos:react" },
+  { name: "Tailwind", icon: "logos:tailwindcss-icon" },
+  { name: "Redux", icon: "logos:redux" },
+  { name: "Javascript", icon: "logos:javascript" },
+  { name: "HTML", icon: "vscode-icons:file-type-html" },
+  { name: "CSS", icon: "devicon:css" },
+];
+
 export function Skills() {
   return (
     <section className="container mx-auto px-6">
@@ -13,8 +24,8 @@ export function Skills() {
         <div className="space-y-8">
           <h3 className="text-[32px] text-primary font-medium mb-8">Formación Académica</h3>
           {/* Formación Académica Item*/}
-          <div>
-            {/* Icono de la institución */}
+          <div className="flex items-center gap-4">
+            <Icon icon="basil:university-solid" className="text-primary text-[32px]" />
             <div>
               <h4 className="text-gray-5 font-bold text-xl">Ingeniería de Software</h4>
               <p className="text-gray-4">Instituto San Ignacio de Loyola</p>
@@ -22,8 +33,8 @@ export function Skills() {
             </div>
           </div>
           {/* Formación Académica Item*/}
-          <div>
-            {/* Icono de la institución */}
+          <div className="flex items-center gap-4">
+            <Icon icon="fluent:certificate-16-filled" className="text-primary text-[32px]" />
             <div>
               <h4 className="text-gray-5 font-bold text-xl">Java</h4>
               <p className="text-gray-4">Cibertec</p>
@@ -35,17 +46,24 @@ export function Skills() {
         {/* Habilidades Técnicas */}
         <div>
           <h3 className="text-[32px] text-primary font-medium mb-8">Habilidades Técnicas</h3>
-          <SkillsContainer />
+          <CarouselSkills />
         </div>
       </div>
     </section>
   )
 }
 
-function SkillsContainer() {
+function CarouselSkills() {
   return (
-    <div>
-      {/* Iconos de tecnologías */}
+    <div className="bg-black-3 border border-gray-2 rounded-[32px] py-6 flex flex-wrap justify-center gap-x-12 gap-y-8 items-center">
+      {techs.map((tech) => (
+        <div key={tech.name} className="flex flex-col items-center gap-3 transition-transform hover:scale-110">
+          <div className="size-16 flex items-center justify-center">
+            <Icon icon={tech.icon} className="text-[72px]" />
+          </div>
+          <p className="text-gray-5 font-medium text-base">{tech.name}</p>
+        </div>
+      ))}
     </div>
   )
 }
