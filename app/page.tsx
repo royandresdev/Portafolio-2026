@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Contact } from "@/components/contact";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -10,7 +11,9 @@ export default function Home() {
     <main className="background font-dm-sans">
       <Header />
       <Hero />
-      <Projects />
+      <Suspense fallback={<p className="text-center py-10 text-gray-4">Cargando proyectos...</p>}>
+        <Projects />
+      </Suspense>
       <Skills />
       <Contact />
       <Footer />

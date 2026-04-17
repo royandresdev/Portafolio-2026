@@ -1,3 +1,4 @@
+import { createClient } from "@/lib/supabase/server"
 import { ProjectCard } from "./project-card"
 
 const mockupProjects = [
@@ -36,7 +37,17 @@ const mockupProjects = [
   },
 ]
 
-export function Projects() {
+export async function Projects() {
+  const supabase = await createClient()
+  const { data: projects, error } = await supabase.from('Projects').select('*')
+
+  if (error) {
+    console.error('Error fetching projects:', error)
+  }
+
+  // Descomentar esto para ver la data real en la terminal una vez conectado
+  console.log('Proyectos desde Supabase:', projects)
+
   return (
     <section className="container mx-auto">
       <span className="label-heading mb-3">-MIS PROYECTOS</span>
