@@ -1,9 +1,11 @@
 import Header from "@/components/header";
+import { Hero } from "@/components/hero";
 
 export default function Home() {
   return (
-    <main className="bg-black-2 font-dm-sans">
+    <main className="background font-dm-sans">
       <Header />
+      <Hero />
     </main>
   );
 }

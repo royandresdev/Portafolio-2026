@@ -19,3 +19,7 @@
   --color-gray-4: #BDBDBD;
   --color-gray-5: #EAEAEA;
 }
+
+@utility background {
+  background: linear-gradient(136deg, rgba(0, 255, 163, 0.05) 0%, rgba(0, 255, 163, 0.00) 100%), #151515;
+}
