@@ -14,8 +14,8 @@ export async function Projects() {
 
   return (
     <section className="container mx-auto max-w-[1280px] px-6">
-      <span className="label-heading mb-3">-MIS PROYECTOS</span>
-      <h2 className="text-5xl font-bold text-primary mb-3">PROYECTOS RECIENTES</h2>
+      <span className="caption mb-3">-MIS PROYECTOS</span>
+      <h2 className="font-bold text-primary mb-3">PROYECTOS RECIENTES</h2>
       <p className="text-gray-4">En esta sección puedes ver algunos de los proyectos que he realizado o en los que estoy trabajando actualmente.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
         {

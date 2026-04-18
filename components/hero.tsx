@@ -6,7 +6,7 @@ export function Hero() {
     <section className="h-fit lg:h-screen min-h-[700px] py-24 flex flex-col lg:flex-row items-center px-6 container max-w-[1280px] mx-auto justify-center gap-6">
       <Image className="block" src="/Avatar-Portafolio.png" alt="Avatar" width={500} height={500} loading="eager" />
       <div className="space-y-6 max-w-[600px]">
-        <span className="label-heading text-[12px] lg:text-sm">-MI NOMBRE ES</span>
+        <span className="caption">-MI NOMBRE ES</span>
         <h1 className="text-2xl lg:text-5xl font-bold">
           <span className="text-primary">ROY HUAMAN</span> <br />
           <span className="text-gray-5">FULLSTACK DEVELOPER</span>

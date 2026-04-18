@@ -38,6 +38,10 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
+@utility caption {
+  @apply label-heading text-[12px] lg:text-sm;
+}
+
 h2 {
   @apply text-2xl lg:text-5xl font-bold text-primary;
 }
