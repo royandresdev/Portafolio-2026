@@ -12,22 +12,22 @@ const techs = [
 export function Skills() {
   return (
     <section className="container mx-auto max-w-[1280px] px-6">
-      <span className="label-heading mb-4">- MIS HABILIDADES</span>
+      <span className="caption mb-4">- MIS HABILIDADES</span>
       <h2 className="mb-4">EDUCACIÓN Y HABILIDADES</h2>
       <p className="text-gray-4 mb-16">
         A lo largo de mi carrera he tenido la oportunidad de formarme en
         diferentes áreas, lo que me ha permitido adquirir conocimientos y
         habilidades en diversas tecnologías.
       </p>
-      <div className="grid grid-cols-2 gap-18">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-18">
         {/* Formación Académica */}
         <div className="space-y-8">
-          <h3 className="text-[32px] text-primary font-medium mb-8">Formación Académica</h3>
+          <h3 className="text-xl lg:text-[32px] text-primary font-medium mb-8">Formación Académica</h3>
           {/* Formación Académica Item*/}
           <div className="flex items-center gap-4">
             <Icon icon="basil:university-solid" className="text-primary text-[32px]" />
             <div>
-              <h4 className="text-gray-5 font-bold text-xl">Ingeniería de Software</h4>
+              <h4 className="text-gray-5 font-bold text-lg lg:text-xl">Ingeniería de Software</h4>
               <p className="text-gray-4">Instituto San Ignacio de Loyola</p>
               <p className="text-gray-4">2021 - Pausado</p>
             </div>
@@ -36,7 +36,7 @@ export function Skills() {
           <div className="flex items-center gap-4">
             <Icon icon="fluent:certificate-16-filled" className="text-primary text-[32px]" />
             <div>
-              <h4 className="text-gray-5 font-bold text-xl">Java</h4>
+              <h4 className="text-gray-5 font-bold text-lg lg:text-xl">Java</h4>
               <p className="text-gray-4">Cibertec</p>
               <p className="text-gray-4">2020 - 2021</p>
             </div>
@@ -45,7 +45,7 @@ export function Skills() {
 
         {/* Habilidades Técnicas */}
         <div>
-          <h3 className="text-[32px] text-primary font-medium mb-8">Habilidades Técnicas</h3>
+          <h3 className="text-xl lg:text-[32px] text-primary font-medium mb-8">Habilidades Técnicas</h3>
           <CarouselSkills />
         </div>
       </div>
