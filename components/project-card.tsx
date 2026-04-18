@@ -20,7 +20,7 @@ export function ProjectCard({ name, description, image, technologies, linkDemo, 
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
       <div className="p-6 space-y-4">
-        <h3 className="text-gray-5 uppercase font-bold text-2xl">{name}</h3>
+        <h3 className="text-gray-5 uppercase font-bold text-xl lg:text-2xl">{name}</h3>
         <p className="text-primary font-semibold">Pagina Industrial</p>
         <Tags technologies={technologies} />
         <p className="text-gray-4">{description}</p>
