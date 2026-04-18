@@ -20,7 +20,48 @@ export function Contact() {
   return (
     <section className="container mx-auto px-6 py-24 max-w-[1280px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
-        {/* Columna Izquierda: Formulario */}
+
+        {/* Columna Izquierda: Info de Contacto */}
+        <div className="flex flex-col gap-8">
+          <h2 className="text-5xl font-bold text-primary uppercase leading-tight">
+            Contacto
+          </h2>
+          <p className="text-gray-5 text-base font-medium leading-relaxed">
+            Gracias por visitar mi portafolio web. Espero que te haya gustado lo que has visto. Aquí puedes encontrar mis datos de contacto.
+          </p>
+
+          <div className="flex flex-col gap-8 mt-4">
+            {/* Item Dirección */}
+            <div className="flex items-center gap-4">
+              <Icon icon="mdi:location" className="text-primary text-[32px]" />
+              <div className="flex flex-col">
+                <p className="text-gray-5 font-bold text-base">Dirección</p>
+                <p className="text-primary font-medium text-base">Lima, Perú</p>
+              </div>
+            </div>
+
+            {/* Item Celular */}
+            <div className="flex items-center gap-4">
+              <Icon icon="ic:round-phone" className="text-primary text-[32px]" />
+              <div className="flex flex-col">
+                <p className="text-gray-5 font-bold text-base">Celular</p>
+                <p className="text-primary font-medium text-base">993 927 044</p>
+              </div>
+            </div>
+
+            {/* Item Correo */}
+            <div className="flex items-center gap-4">
+              <Icon icon="material-symbols:mail" className="text-primary text-[32px]" />
+              <div className="flex flex-col">
+                <p className="text-gray-5 font-bold text-base">Correo</p>
+                <a href="mailto:contact@royandres.dev" className="text-primary font-medium text-base hover:underline italic">
+                  contact@royandres.dev
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Columna Derecha: Formulario */}
         <div className="bg-black-3 border border-gray-2 rounded-[32px] px-8 py-16 backdrop-blur-[2px] custom-shadow w-full">
           <Formik
             initialValues={{ nombre: "", correo: "", mensaje: "" }}
@@ -83,47 +124,6 @@ export function Contact() {
               </Form>
             )}
           </Formik>
-        </div>
-
-        {/* Columna Derecha: Info de Contacto */}
-        <div className="flex flex-col gap-8">
-          <h2 className="text-5xl font-bold text-primary uppercase leading-tight">
-            Contacto
-          </h2>
-          <p className="text-gray-5 text-base font-medium leading-relaxed">
-            Gracias por visitar mi portafolio web. Espero que te haya gustado lo que has visto. Aquí puedes encontrar mis datos de contacto.
-          </p>
-
-          <div className="flex flex-col gap-8 mt-4">
-            {/* Item Dirección */}
-            <div className="flex items-center gap-4">
-              <Icon icon="mdi:location" className="text-primary text-[32px]" />
-              <div className="flex flex-col">
-                <p className="text-gray-5 font-bold text-base">Dirección</p>
-                <p className="text-primary font-medium text-base">Lima, Perú</p>
-              </div>
-            </div>
-
-            {/* Item Celular */}
-            <div className="flex items-center gap-4">
-              <Icon icon="ic:round-phone" className="text-primary text-[32px]" />
-              <div className="flex flex-col">
-                <p className="text-gray-5 font-bold text-base">Celular</p>
-                <p className="text-primary font-medium text-base">993 927 044</p>
-              </div>
-            </div>
-
-            {/* Item Correo */}
-            <div className="flex items-center gap-4">
-              <Icon icon="material-symbols:mail" className="text-primary text-[32px]" />
-              <div className="flex flex-col">
-                <p className="text-gray-5 font-bold text-base">Correo</p>
-                <a href="mailto:contact@royandres.dev" className="text-primary font-medium text-base hover:underline italic">
-                  contact@royandres.dev
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
