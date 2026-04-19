@@ -7,7 +7,7 @@ export function Hero() {
       <Image className="block" src="/Avatar-Portafolio.png" alt="Avatar" width={500} height={500} loading="eager" />
       <div className="space-y-6 max-w-[600px]">
         <span className="caption">-MI NOMBRE ES</span>
-        <h1 className="text-2xl lg:text-5xl font-bold">
+        <h1 className="text-2xl lg:text-5xl/snug font-bold">
           <span className="text-primary">ROY HUAMAN</span> <br />
           <span className="text-gray-5">FULLSTACK DEVELOPER</span>
         </h1>
