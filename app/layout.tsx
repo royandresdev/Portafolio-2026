@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Roy Huaman | Fullstack Developer",
   description: "Portafolio profesional de Roy Huaman, Fullstack Developer apasionado por el software sólido y profesional.",
   icons: {
-    icon: "/logo.svg",
+    icon: "/Logo.svg",
   },
 };
 
