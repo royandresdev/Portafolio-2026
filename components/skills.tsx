@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { AnimateOnScroll } from "./animate-on-scroll";
 
 const techs = [
   { name: "React", icon: "logos:react" },
@@ -12,41 +13,59 @@ const techs = [
 export function Skills() {
   return (
     <section className="container mx-auto max-w-[1280px] px-6">
-      <span className="caption mb-4">- MIS HABILIDADES</span>
-      <h2 className="mb-4">EDUCACIÓN Y HABILIDADES</h2>
-      <p className="text-gray-4 mb-16">
-        A lo largo de mi carrera he tenido la oportunidad de formarme en
-        diferentes áreas, lo que me ha permitido adquirir conocimientos y
-        habilidades en diversas tecnologías.
-      </p>
+      {/* Header */}
+      <AnimateOnScroll>
+        <span className="caption mb-4">- MIS HABILIDADES</span>
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={100}>
+        <h2 className="mb-4">EDUCACIÓN Y HABILIDADES</h2>
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={200}>
+        <p className="text-gray-4 mb-16">
+          A lo largo de mi carrera he tenido la oportunidad de formarme en
+          diferentes áreas, lo que me ha permitido adquirir conocimientos y
+          habilidades en diversas tecnologías.
+        </p>
+      </AnimateOnScroll>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-18">
         {/* Formación Académica */}
         <div className="space-y-8">
-          <h3 className="text-xl lg:text-[32px] text-primary font-medium mb-8">Formación Académica</h3>
-          {/* Formación Académica Item*/}
-          <div className="flex items-center gap-4">
-            <Icon icon="basil:university-solid" className="text-primary text-[32px]" />
-            <div>
-              <h4 className="text-gray-5 font-bold text-lg lg:text-xl">Ingeniería de Software</h4>
-              <p className="text-gray-4">Instituto San Ignacio de Loyola</p>
-              <p className="text-gray-4">2021 - Pausado</p>
+          <AnimateOnScroll animation="fade-right" delay={100}>
+            <h3 className="text-xl lg:text-[32px] text-primary font-medium mb-8">Formación Académica</h3>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fade-right" delay={200}>
+            <div className="flex items-center gap-4">
+              <Icon icon="basil:university-solid" className="text-primary text-[32px]" />
+              <div>
+                <h4 className="text-gray-5 font-bold text-lg lg:text-xl">Ingeniería de Software</h4>
+                <p className="text-gray-4">Instituto San Ignacio de Loyola</p>
+                <p className="text-gray-4">2021 - Pausado</p>
+              </div>
             </div>
-          </div>
-          {/* Formación Académica Item*/}
-          <div className="flex items-center gap-4">
-            <Icon icon="fluent:certificate-16-filled" className="text-primary text-[32px]" />
-            <div>
-              <h4 className="text-gray-5 font-bold text-lg lg:text-xl">Java</h4>
-              <p className="text-gray-4">Cibertec</p>
-              <p className="text-gray-4">2020 - 2021</p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="fade-right" delay={300}>
+            <div className="flex items-center gap-4">
+              <Icon icon="fluent:certificate-16-filled" className="text-primary text-[32px]" />
+              <div>
+                <h4 className="text-gray-5 font-bold text-lg lg:text-xl">Java</h4>
+                <p className="text-gray-4">Cibertec</p>
+                <p className="text-gray-4">2020 - 2021</p>
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
 
         {/* Habilidades Técnicas */}
         <div>
-          <h3 className="text-xl lg:text-[32px] text-primary font-medium mb-8">Habilidades Técnicas</h3>
-          <CarouselSkills />
+          <AnimateOnScroll delay={200}>
+            <h3 className="text-xl lg:text-[32px] text-primary font-medium mb-8">Habilidades Técnicas</h3>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={300}>
+            <CarouselSkills />
+          </AnimateOnScroll>
         </div>
       </div>
     </section>
