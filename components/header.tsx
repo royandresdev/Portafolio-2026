@@ -52,7 +52,6 @@ export function Header() {
             width={45}
             height={48}
             className="h-8 lg:h-12 w-auto"
-            style={{ width: "auto", height: "auto" }}
             priority
           />
         </div>
@@ -62,9 +61,8 @@ export function Header() {
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
-                  className={`transition-colors hover:text-primary ${
-                    activeSection === link.id ? "text-primary" : ""
-                  }`}
+                  className={`transition-colors hover:text-primary ${activeSection === link.id ? "text-primary" : ""
+                    }`}
                 >
                   {link.label}
                 </a>
