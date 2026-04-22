@@ -85,7 +85,7 @@ export function Header() {
             ))}
           </ul>
         </nav>
-        <button className="lg:hidden">
+        <button className="lg:hidden" aria-label="Abrir menú de navegación">
           <Icon className="size-8 text-primary" icon="material-symbols:menu-rounded" />
         </button>
       </header>

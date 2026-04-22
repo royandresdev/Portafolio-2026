@@ -94,8 +94,10 @@ export function Contact() {
                       Nombre
                     </label>
                     <Field
+                      id="nombre"
                       name="nombre"
                       type="text"
+                      aria-required="true"
                       className="bg-black-2 border border-gray-2 rounded-lg h-10 px-4 text-white focus:border-primary outline-none transition-colors"
                     />
                     <ErrorMessage name="nombre" component="span" className="text-danger text-sm" />
@@ -107,8 +109,10 @@ export function Contact() {
                       Correo
                     </label>
                     <Field
+                      id="correo"
                       name="correo"
                       type="email"
+                      aria-required="true"
                       className="bg-black-2 border border-gray-2 rounded-lg h-10 px-4 text-white focus:border-primary outline-none transition-colors"
                     />
                     <ErrorMessage name="correo" component="span" className="text-danger text-sm" />
@@ -120,8 +124,10 @@ export function Contact() {
                       Mensaje
                     </label>
                     <Field
+                      id="mensaje"
                       name="mensaje"
                       as="textarea"
+                      aria-required="true"
                       className="bg-black-2 border border-gray-2 rounded-lg min-h-[120px] p-4 text-white focus:border-primary outline-none transition-colors resize-none"
                     />
                     <ErrorMessage name="mensaje" component="span" className="text-danger text-sm" />
