@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { AnimateOnScroll } from "./animate-on-scroll";
 
 export default function Footer() {
   return (
     <footer className="bg-black-2 py-16">
-      <div className="container max-w-[1280px] px-6 mx-auto">
+      <AnimateOnScroll className="container max-w-[1280px] px-6 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           {/* Logo and Tagline Section */}
           <div className="flex items-center gap-6 max-w-md">
@@ -67,7 +68,8 @@ export default function Footer() {
             © 2026 RoyAndresDev
           </p>
         </div>
-      </div>
+      </AnimateOnScroll>
     </footer>
   );
 }
+
