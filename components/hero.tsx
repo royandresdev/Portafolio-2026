@@ -29,13 +29,23 @@ export function Hero() {
           ¡Bienvenido! Soy un entusiasta de la programación. Desde siempre me ha fascinado entender cómo funciona el software. Al codificar, siento que tengo la libertad de explotar al máximo mi creatividad, creando código sólido y profesional.
         </p>
 
-        {/* Iconos sociales: fade up con delay 300ms */}
+        {/* Iconos sociales: fade up con delay 300ms + efectos hover + float */}
         <div className="flex gap-4 animate-fade-up delay-300">
-          <a href="https://github.com/royandresdev" target="_blank" className="flex items-center gap-2" aria-label="GitHub">
-            <Icon icon="bi:github" fontSize={32} className="text-gray-4" />
+          <a
+            href="https://github.com/royandresdev"
+            target="_blank"
+            className="flex items-center gap-2 transition-all duration-300 hover:scale-120 hover:text-primary text-gray-4 animate-float"
+            aria-label="GitHub"
+          >
+            <Icon icon="bi:github" fontSize={32} />
           </a>
-          <a href="https://www.linkedin.com/in/royhuamanavila" target="_blank" className="flex items-center gap-2" aria-label="LinkedIn">
-            <Icon icon="mdi:linkedin" fontSize={32} className="text-gray-4" />
+          <a
+            href="https://www.linkedin.com/in/royhuamanavila"
+            target="_blank"
+            className="flex items-center gap-2 transition-all duration-300 hover:scale-120 hover:text-primary text-gray-4 animate-float [animation-delay:1.5s]"
+            aria-label="LinkedIn"
+          >
+            <Icon icon="mdi:linkedin" fontSize={32} />
           </a>
         </div>
       </div>
