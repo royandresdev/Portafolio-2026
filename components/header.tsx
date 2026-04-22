@@ -47,13 +47,13 @@ export function Header() {
       <header className="relative flex justify-end lg:justify-center items-center h-18 container mx-auto px-6 max-w-[1280px]">
         <div className="absolute left-6">
           <Image
-            className="h-8 w-auto lg:h-12"
             src="/logo.svg"
             alt="Logo"
+            width={45}
             height={48}
-            width={43}
+            className="h-8 lg:h-12 w-auto"
+            style={{ width: "auto", height: "auto" }}
             priority
-            style={{ width: "auto" }}
           />
         </div>
         <nav className="hidden lg:block">
