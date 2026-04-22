@@ -10,12 +10,11 @@ export default function Footer() {
           <div className="flex items-center gap-6 max-w-md">
             {/* Logo Placeholder */}
             <Image
-              src="/logo.svg"
+              src="/Logo.svg"
               alt="Logo"
               width={45}
               height={48}
               className="h-10 lg:h-12 w-auto"
-              style={{ width: "auto", height: "auto" }}
             />
             <p className="text-white text-sm leading-relaxed max-w-[300px]">
               Simplificando tu salto al mundo digital
