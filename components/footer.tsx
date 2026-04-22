@@ -25,9 +25,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Servicios */}
             <div className="flex flex-col gap-4">
-              <h5 className="text-white font-bold text-xs tracking-widest uppercase">
+              <h3 className="text-white font-bold text-xs tracking-widest uppercase">
                 Servicios
-              </h5>
+              </h3>
               <ul className="flex flex-col gap-3">
                 <li>
                   <a href="#" className="text-gray-4 hover:text-primary transition-colors text-sm">
@@ -49,17 +49,27 @@ export default function Footer() {
 
             {/* Redes Sociales */}
             <div className="flex flex-col gap-4">
-              <h5 className="text-white font-bold text-xs tracking-widest uppercase">
+              <h3 className="text-white font-bold text-xs tracking-widest uppercase">
                 Redes Sociales
-              </h5>
+              </h3>
               <ul className="flex flex-col gap-3">
                 <li>
-                  <a href="#" className="text-gray-4 hover:text-primary transition-colors text-sm">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-4 hover:text-primary transition-colors text-sm"
+                  >
                     WhatsApp
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-4 hover:text-primary transition-colors text-sm">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-4 hover:text-primary transition-colors text-sm"
+                  >
                     Instagram
                   </a>
                 </li>

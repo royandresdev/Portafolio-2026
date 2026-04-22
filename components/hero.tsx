@@ -34,6 +34,7 @@ export function Hero() {
           <a
             href="https://github.com/royandresdev"
             target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 transition-all duration-300 hover:scale-120 hover:text-primary text-gray-4 animate-float"
             aria-label="GitHub"
           >
@@ -42,6 +43,7 @@ export function Hero() {
           <a
             href="https://www.linkedin.com/in/royhuamanavila"
             target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 transition-all duration-300 hover:scale-120 hover:text-primary text-gray-4 animate-float [animation-delay:1.5s]"
             aria-label="LinkedIn"
           >
