@@ -96,3 +96,24 @@ h2 {
 @utility delay-500 {
   animation-delay: 500ms;
 }
+
+/* ── Scroll-triggered animations (via IntersectionObserver) ── */
+.scroll-animate {
+  opacity: 0;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate.fade-up {
+  transform: translateY(32px);
+}
+
+.scroll-animate.fade-right {
+  transform: translateX(-40px);
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: none;
+}
