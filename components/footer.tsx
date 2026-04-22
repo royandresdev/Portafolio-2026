@@ -12,9 +12,9 @@ export default function Footer() {
             <Image
               src="/Logo.svg"
               alt="Logo"
+              className="h-10 lg:h-12 w-auto"
               width={45}
               height={48}
-              className="h-10 lg:h-12 w-auto"
             />
             <p className="text-white text-sm leading-relaxed max-w-[300px]">
               Simplificando tu salto al mundo digital

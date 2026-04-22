@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const NAV_LINKS = [
   { id: "about", label: "ACERCA DE MI" },
@@ -14,10 +14,19 @@ const NAV_LINKS = [
 export function Header() {
   const [activeSection, setActiveSection] = useState("");
 
+  const setupObserver = useCallback((observer: IntersectionObserver) => {
+    NAV_LINKS.forEach((link) => {
+      const section = document.getElementById(link.id);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px", // Trigger when section is in the middle-top of viewport
+      rootMargin: "-20% 0px -70% 0px",
       threshold: 0,
     };
 
@@ -30,17 +39,23 @@ export function Header() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
+    setupObserver(observer);
 
-    // Observe all sections mentioned in NAV_LINKS
-    NAV_LINKS.forEach((link) => {
-      const section = document.getElementById(link.id);
-      if (section) {
-        observer.observe(section);
-      }
+    // MutationObserver to detect when Suspense components (like Projects) are loaded
+    const mutationObserver = new MutationObserver(() => {
+      setupObserver(observer);
     });
 
-    return () => observer.disconnect();
-  }, []);
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, [setupObserver]);
 
   return (
     <div className="w-full bg-[#0000001a] backdrop-blur-[2px] fixed top-0 z-50">
@@ -49,9 +64,9 @@ export function Header() {
           <Image
             src="/Logo.svg"
             alt="Logo"
+            className="h-8 lg:h-12 w-auto"
             width={45}
             height={48}
-            className="h-8 lg:h-12 w-auto"
             priority
           />
         </div>

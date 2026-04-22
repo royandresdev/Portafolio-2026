@@ -2,7 +2,7 @@ import { Skeleton } from "./ui/skeleton"
 
 export function ProjectsSkeleton() {
   return (
-    <section className="container mx-auto max-w-[1280px] px-6 space-y-4">
+    <section id="projects" className="container mx-auto max-w-[1280px] px-6 space-y-4">
       {/* Header Skeleton */}
       <div className="space-y-3">
         <Skeleton className="h-5 w-32" /> {/* Caption */}
