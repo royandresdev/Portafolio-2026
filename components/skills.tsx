@@ -12,7 +12,7 @@ const techs = [
 
 export function Skills() {
   return (
-    <section className="container mx-auto max-w-[1280px] px-6">
+    <section id="skills" className="container mx-auto max-w-[1280px] px-6">
       {/* Header */}
       <AnimateOnScroll>
         <span className="caption mb-4">- MIS HABILIDADES</span>

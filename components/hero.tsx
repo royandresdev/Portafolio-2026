@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="h-fit lg:h-screen min-h-[700px] py-24 flex flex-col lg:flex-row items-center px-6 container max-w-[1280px] mx-auto justify-center gap-6">
+    <section id="about" className="h-fit lg:h-screen min-h-[700px] py-24 flex flex-col lg:flex-row items-center px-6 container max-w-[1280px] mx-auto justify-center gap-6">
       {/* Avatar: desliza desde la izquierda */}
       <Image
         className="block animate-fade-right"

@@ -19,7 +19,7 @@ const ContactSchema = Yup.object().shape({
 
 export function Contact() {
   return (
-    <section className="container mx-auto px-6 py-24 max-w-[1280px]">
+    <section id="contact" className="container mx-auto px-6 py-24 max-w-[1280px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
 
         {/* Columna Izquierda: Info de Contacto */}

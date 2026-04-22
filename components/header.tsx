@@ -11,16 +11,16 @@ export function Header() {
         <nav className="hidden lg:block">
           <ul className="flex gap-3 text-gray-5 font-bold">
             <li>
-              <a href="#" className="text-primary">ACERCA DE MI</a>
+              <a href="#about" className="text-primary">ACERCA DE MI</a>
             </li>
             <li>
-              <a href="#">PROYECTOS</a>
+              <a href="#projects">PROYECTOS</a>
             </li>
             <li>
-              <a href="#">HABILIDADES</a>
+              <a href="#skills">HABILIDADES</a>
             </li>
             <li>
-              <a href="#">CONTACTO</a>
+              <a href="#contact">CONTACTO</a>
             </li>
           </ul>
         </nav>

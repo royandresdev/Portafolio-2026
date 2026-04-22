@@ -13,7 +13,7 @@ export async function Projects() {
   console.log('Proyectos desde Supabase:', projects)
 
   return (
-    <section className="container mx-auto max-w-[1280px] px-6">
+    <section id="projects" className="container mx-auto max-w-[1280px] px-6">
       <AnimateOnScroll>
         <span className="caption mb-3">-MIS PROYECTOS</span>
       </AnimateOnScroll>
