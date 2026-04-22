@@ -11,7 +11,8 @@ export function Hero() {
         alt="Avatar"
         width={500}
         height={500}
-        loading="eager"
+        priority
+        sizes="(max-width: 768px) 100vw, 500px"
       />
 
       <div className="space-y-6 max-w-[600px]">
