@@ -5,9 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/private/'],
+      disallow: '/private/',
     },
-    // Opcional: Descomenta esto si luego creas un sitemap
-    // sitemap: 'https://royandres.dev/sitemap.xml',
   }
 }
