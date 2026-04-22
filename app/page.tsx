@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
+import { ProjectsSkeleton } from "@/components/projects-skeleton";
 import { Skills } from "@/components/skills";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
     <main className="background font-dm-sans space-y-24">
       <Header />
       <Hero />
-      <Suspense fallback={<p className="text-center py-10 text-gray-4">Cargando proyectos...</p>}>
+      <Suspense fallback={<ProjectsSkeleton />}>
         <Projects />
       </Suspense>
       <Skills />

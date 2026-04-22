@@ -11,17 +11,24 @@ interface ProjectCardProps {
   linkDemo: string;
   linkRepo: string;
   linkFigma?: string;
+  typeApp: string;
 }
 
-export function ProjectCard({ name, description, image, technologies, linkDemo, linkRepo }: ProjectCardProps) {
+export function ProjectCard({ name, description, image, technologies, linkDemo, linkRepo, typeApp }: ProjectCardProps) {
   return (
     <article className="w-full h-full bg-black-3 rounded-[32px] pb-6 custom-shadow flex flex-col border border-black-3">
       <div className="w-full aspect-video relative overflow-hidden rounded-t-[32px]">
-        <Image src={image} alt={name} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </div>
       <div className="p-6 space-y-4">
         <h3 className="text-gray-5 uppercase font-bold text-xl lg:text-2xl">{name}</h3>
-        <p className="text-primary font-semibold">Pagina Industrial</p>
+        <p className="text-primary font-semibold">{typeApp}</p>
         <Tags technologies={technologies} />
         <p className="text-gray-4">{description}</p>
       </div>
