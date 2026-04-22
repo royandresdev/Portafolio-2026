@@ -10,8 +10,6 @@ export async function Projects() {
     console.error('Error fetching projects:', error)
   }
 
-  console.log('Proyectos desde Supabase:', projects)
-
   return (
     <section id="projects" className="container mx-auto max-w-[1280px] px-6">
       <AnimateOnScroll>
