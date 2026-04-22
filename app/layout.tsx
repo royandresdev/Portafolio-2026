@@ -28,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+      </head>
       <body className={`${geistSans.className} antialiased`}>
         {children}
       </body>
