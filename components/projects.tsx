@@ -3,6 +3,10 @@ import { ProjectCard } from "./project-card"
 import { AnimateOnScroll } from "./animate-on-scroll"
 
 export async function Projects() {
+  // Retraso artificial para probar el skeleton
+  console.log("Iniciando carga de proyectos (3s delay)...")
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const supabase = await createClient()
   const { data: projects, error } = await supabase.from('Projects').select('*')
 
