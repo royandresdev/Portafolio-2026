@@ -73,16 +73,23 @@ export function Skills() {
 }
 
 function CarouselSkills() {
+  const doubled = [...techs, ...techs]
+
   return (
-    <div className="bg-black-3 border px-6 w-fit border-gray-2 rounded-[32px] py-6 flex flex-wrap justify-center gap-6 items-center custom-shadow">
-      {techs.map((tech) => (
-        <div key={tech.name} className="flex flex-col items-center gap-3 transition-transform hover:scale-110">
-          <div className="size-16 flex items-center justify-center">
-            <Icon icon={tech.icon} className="text-[72px]" />
+    <div className="marquee-container bg-black-3 border border-gray-2 rounded-[32px] py-6 overflow-hidden custom-shadow cursor-pointer">
+      <div className="marquee-track px-5">
+        {doubled.map((tech, i) => (
+          <div
+            key={i}
+            className="flex flex-col items-center gap-3 shrink-0 transition-transform hover:scale-110"
+          >
+            <div className="size-16 flex items-center justify-center">
+              <Icon icon={tech.icon} className="text-[72px]" />
+            </div>
+            <p className="text-gray-5 font-medium text-base">{tech.name}</p>
           </div>
-          <p className="text-gray-5 font-medium text-base">{tech.name}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
