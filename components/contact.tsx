@@ -73,8 +73,8 @@ export function Contact() {
                 <Icon icon="material-symbols:mail" className="text-primary text-[32px]" />
                 <div className="flex flex-col">
                   <p className="text-gray-5 font-bold text-base">Correo</p>
-                  <a href="mailto:contact@royandres.dev" className="text-primary font-medium text-base hover:underline italic">
-                    contact@royandres.dev
+                  <a href="mailto:contact@royandresdev.com" className="text-primary font-medium text-base hover:underline italic">
+                    contact@royandresdev.com
                   </a>
                 </div>
               </div>
