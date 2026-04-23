@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { Icon } from "@iconify/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { AnimateOnScroll } from "./animate-on-scroll";
+import { sendEmail } from "@/app/actions/send-email";
+import { useState } from "react";
 
 const ContactSchema = Yup.object().shape({
   nombre: Yup.string()
@@ -18,6 +21,11 @@ const ContactSchema = Yup.object().shape({
 });
 
 export function Contact() {
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string | null;
+  }>({ type: null, message: null });
+
   return (
     <section id="contact" className="container mx-auto px-6 py-24 max-w-[1280px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
@@ -80,10 +88,21 @@ export function Contact() {
             <Formik
               initialValues={{ nombre: "", correo: "", mensaje: "" }}
               validationSchema={ContactSchema}
-              onSubmit={(values, { resetForm }) => {
-                console.log(values);
-                alert("Mensaje enviado con éxito");
-                resetForm();
+              onSubmit={async (values, { resetForm, setSubmitting }) => {
+                setStatus({ type: null, message: null });
+                try {
+                  const result = await sendEmail(values);
+                  if (result.success) {
+                    setStatus({ type: "success", message: "¡Mensaje enviado con éxito!" });
+                    resetForm();
+                  } else {
+                    setStatus({ type: "error", message: result.error || "Error al enviar el mensaje." });
+                  }
+                } catch (error) {
+                  setStatus({ type: "error", message: "Ocurrió un error inesperado." });
+                } finally {
+                  setSubmitting(false);
+                }
               }}
             >
               {({ isSubmitting }) => (
@@ -133,13 +152,26 @@ export function Contact() {
                     <ErrorMessage name="mensaje" component="span" className="text-danger text-sm" />
                   </div>
 
+                  {/* Mensaje de Estado */}
+                  {status.message && (
+                    <div className={`p-4 rounded-lg text-sm font-medium ${status.type === "success" ? "bg-primary/10 text-primary border border-primary/20" : "bg-danger/10 text-danger border border-danger/20"
+                      }`}>
+                      {status.message}
+                    </div>
+                  )}
+
                   {/* Botón Submit */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gray-1 border border-gray-2 py-4 rounded-lg custom-shadow text-gray-5 font-semibold uppercase hover:bg-gray-2 transition-colors disabled:opacity-50"
+                    className="bg-gray-1 border border-gray-2 py-4 rounded-lg custom-shadow text-gray-5 font-semibold uppercase hover:bg-gray-2 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   >
-                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                    {isSubmitting ? (
+                      <>
+                        <Icon icon="mdi:loading" className="animate-spin text-xl" />
+                        Enviando...
+                      </>
+                    ) : "Enviar Mensaje"}
                   </button>
                 </Form>
               )}
@@ -151,4 +183,3 @@ export function Contact() {
     </section>
   );
 }
-
