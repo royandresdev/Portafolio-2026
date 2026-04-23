@@ -50,6 +50,9 @@ html {
 h2 {
   @apply text-2xl lg:text-5xl font-bold text-primary;
 }
+button {
+  @apply cursor-pointer;
+}
 
 /* ── Hero entrance animations ── */
 @keyframes fade-up {
@@ -125,8 +128,12 @@ h2 {
 
 /* ── Infinite marquee slider ── */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -142,9 +149,15 @@ h2 {
 
 /* ── Floating Animation ── */
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @utility animate-float {
