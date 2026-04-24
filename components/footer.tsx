@@ -55,7 +55,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 <li>
                   <a
-                    href="#"
+                    href="https://wa.me/51993927044"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-4 hover:text-primary transition-colors text-sm"
@@ -65,12 +65,42 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/royandresdev_/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-4 hover:text-primary transition-colors text-sm"
                   >
                     Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/royhuamanavila"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-4 hover:text-primary transition-colors text-sm"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/@royandresdev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-4 hover:text-primary transition-colors text-sm"
+                  >
+                    YouTube
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/royandresdev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-4 hover:text-primary transition-colors text-sm"
+                  >
+                    GitHub
                   </a>
                 </li>
               </ul>
