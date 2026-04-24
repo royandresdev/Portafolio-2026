@@ -82,16 +82,16 @@ export function MobileMenu({ isOpen, onClose, activeSection, links }: MobileMenu
 
         {/* Footer - Social Media */}
         <div className="flex justify-center gap-6 p-10 pt-8">
-          <a href="https://www.linkedin.com/in/royhuamanavila" className="text-white hover:text-primary transition-all hover:scale-110">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/royhuamanavila" className="text-white hover:text-primary transition-all hover:scale-110">
             <Icon icon="mdi:linkedin" className="size-8" />
           </a>
-          <a href="https://github.com/royandresdev" className="text-white hover:text-primary transition-all hover:scale-110">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/royandresdev" className="text-white hover:text-primary transition-all hover:scale-110">
             <Icon icon="mdi:github" className="size-8" />
           </a>
-          <a href="https://www.youtube.com/@royandresdev" className="text-white hover:text-primary transition-all hover:scale-110">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@royandresdev" className="text-white hover:text-primary transition-all hover:scale-110">
             <Icon icon="mdi:youtube" className="size-8" />
           </a>
-          <a href="https://www.instagram.com/royandresdev_/" className="text-white hover:text-primary transition-all hover:scale-110">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/royandresdev_/" className="text-white hover:text-primary transition-all hover:scale-110">
             <Icon icon="mdi:instagram" className="size-8" />
           </a>
         </div>
