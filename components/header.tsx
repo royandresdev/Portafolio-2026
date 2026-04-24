@@ -4,6 +4,8 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 
+import { MobileMenu } from "./mobile-menu";
+
 const NAV_LINKS = [
   { id: "about", label: "ACERCA DE MI" },
   { id: "projects", label: "PROYECTOS" },
@@ -13,6 +15,7 @@ const NAV_LINKS = [
 
 export function Header() {
   const [activeSection, setActiveSection] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const setupObserver = useCallback((observer: IntersectionObserver) => {
     NAV_LINKS.forEach((link) => {
@@ -85,10 +88,22 @@ export function Header() {
             ))}
           </ul>
         </nav>
-        <button className="lg:hidden" aria-label="Abrir menú de navegación">
+        <button
+          className="lg:hidden p-2 -mr-2"
+          aria-label="Abrir menú de navegación"
+          onClick={() => setIsMenuOpen(true)}
+        >
           <Icon className="size-8 text-primary" icon="material-symbols:menu-rounded" />
         </button>
       </header>
+
+      {/* Menú Móvil */}
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        activeSection={activeSection}
+        links={NAV_LINKS}
+      />
     </div>
   );
 }
