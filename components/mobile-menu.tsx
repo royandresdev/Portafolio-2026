@@ -81,7 +81,7 @@ export function MobileMenu({ isOpen, onClose, activeSection, links }: MobileMenu
         </nav>
 
         {/* Footer - Social Media */}
-        <div className="flex justify-center gap-6 p-10 pt-4">
+        <div className="flex justify-center gap-6 p-10 pt-8">
           <a href="#" className="text-white hover:text-primary transition-all hover:scale-110">
             <Icon icon="mdi:linkedin" className="size-8" />
           </a>
