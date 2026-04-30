@@ -4,8 +4,22 @@ import { Resend } from "resend";
 import { ContactEmailTemplate } from "@/components/emails/contact-email";
 import * as React from "react";
 import * as Yup from "yup";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
+import { headers } from "next/headers";
 
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
+
+// Configuración de Rate Limiting (Upstash Redis)
+// Limitamos a 3 mensajes por cada 1 hora por dirección IP
+const ratelimit = process.env.UPSTASH_REDIS_REST_URL
+  ? new Ratelimit({
+    redis: Redis.fromEnv(),
+    limiter: Ratelimit.slidingWindow(3, "1 h"),
+    analytics: true,
+    prefix: "@upstash/ratelimit",
+  })
+  : null;
 
 // Definimos el esquema de validación en el servidor para asegurar la integridad de los datos
 const ContactSchema = Yup.object().shape({
@@ -30,13 +44,27 @@ export async function sendEmail(formData: {
   _hp_phone?: string; // Campo Honeypot
 }) {
   try {
-    // 1. Verificación Honeypot: si el bot llenó este campo, ignoramos el envío
+    // 1. Rate Limiting: Protege contra spam masivo por IP
+    if (ratelimit) {
+      const headersList = await headers();
+      const ip = headersList.get("x-forwarded-for") ?? "127.0.0.1";
+      const { success } = await ratelimit.limit(ip);
+
+      if (!success) {
+        return {
+          success: false,
+          error: "Has superado el límite de mensajes permitidos. Intenta de nuevo en una hora.",
+        };
+      }
+    }
+
+    // 2. Verificación Honeypot: si el bot llenó este campo, ignoramos el envío
     if (formData._hp_phone) {
       console.warn("Honeypot detectado: Intento de spam bloqueado.");
       return { success: true }; // Engañamos al bot haciéndole creer que tuvo éxito
     }
 
-    // 2. Validación de servidor: previene bypass de validación de cliente
+    // 3. Validación de servidor: previene bypass de validación de cliente
     await ContactSchema.validate(formData, { abortEarly: false });
 
     const { nombre, correo, mensaje } = formData;
