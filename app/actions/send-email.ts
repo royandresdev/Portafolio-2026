@@ -3,7 +3,8 @@
 import { Resend } from "resend";
 import { ContactEmailTemplate } from "@/components/emails/contact-email";
 import * as React from "react";
-import * as Yup from "yup";
+import { ContactSchema } from "@/lib/validations/contact-schema";
+import { ValidationError } from "yup";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { headers } from "next/headers";
@@ -21,21 +22,7 @@ const ratelimit = process.env.UPSTASH_REDIS_REST_URL
   })
   : null;
 
-// Definimos el esquema de validación en el servidor para asegurar la integridad de los datos
-const ContactSchema = Yup.object().shape({
-  nombre: Yup.string()
-    .min(2, "Demasiado corto")
-    .max(100, "Nombre demasiado largo")
-    .required("El nombre es requerido"),
-  correo: Yup.string()
-    .email("Correo inválido")
-    .max(100, "Correo demasiado largo")
-    .required("El correo es requerido"),
-  mensaje: Yup.string()
-    .min(10, "Mensaje demasiado corto")
-    .max(2000, "El mensaje no puede exceder los 2000 caracteres")
-    .required("El mensaje es requerido"),
-});
+// El esquema de validación se ha movido a @/lib/validations/contact-schema.ts
 
 export async function sendEmail(formData: {
   nombre: string;
@@ -89,7 +76,7 @@ export async function sendEmail(formData: {
     return { success: true, data };
   } catch (error) {
     // 3. Manejo de errores de validación o inesperados
-    if (error instanceof Yup.ValidationError) {
+    if (error instanceof ValidationError) {
       return { success: false, error: error.errors[0] }; // Retorna el primer mensaje de error de Yup
     }
 
