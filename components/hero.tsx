@@ -12,6 +12,7 @@ export function Hero() {
         width={500}
         height={500}
         priority
+        fetchPriority="high"
         sizes="(max-width: 768px) 100vw, 500px"
       />
 

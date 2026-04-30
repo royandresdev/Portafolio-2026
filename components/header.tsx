@@ -71,6 +71,7 @@ export function Header() {
             width={45}
             height={48}
             priority
+            fetchPriority="high"
           />
         </div>
         <nav className="hidden lg:block">
