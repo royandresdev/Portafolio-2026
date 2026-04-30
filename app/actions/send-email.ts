@@ -27,9 +27,16 @@ export async function sendEmail(formData: {
   nombre: string;
   correo: string;
   mensaje: string;
+  _hp_phone?: string; // Campo Honeypot
 }) {
   try {
-    // 1. Validación de servidor: previene bypass de validación de cliente
+    // 1. Verificación Honeypot: si el bot llenó este campo, ignoramos el envío
+    if (formData._hp_phone) {
+      console.warn("Honeypot detectado: Intento de spam bloqueado.");
+      return { success: true }; // Engañamos al bot haciéndole creer que tuvo éxito
+    }
+
+    // 2. Validación de servidor: previene bypass de validación de cliente
     await ContactSchema.validate(formData, { abortEarly: false });
 
     const { nombre, correo, mensaje } = formData;
