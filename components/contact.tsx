@@ -3,25 +3,12 @@
 
 import { Icon } from "@iconify/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { ContactSchema } from "@/lib/validations/contact-schema";
 import { AnimateOnScroll } from "./animate-on-scroll";
 import { sendEmail } from "@/app/actions/send-email";
 import { useState } from "react";
 
-const ContactSchema = Yup.object().shape({
-  nombre: Yup.string()
-    .min(2, "Demasiado corto")
-    .max(100, "Nombre demasiado largo")
-    .required("El nombre es requerido"),
-  correo: Yup.string()
-    .email("Correo inválido")
-    .max(100, "Correo demasiado largo")
-    .required("El correo es requerido"),
-  mensaje: Yup.string()
-    .min(10, "Mensaje demasiado corto")
-    .max(2000, "El mensaje no puede exceder los 2000 caracteres")
-    .required("El mensaje es requerido"),
-});
+// El esquema de validación se ha movido a @/lib/validations/contact-schema.ts
 
 export function Contact() {
   const [status, setStatus] = useState<{
@@ -162,8 +149,11 @@ export function Contact() {
 
                   {/* Mensaje de Estado */}
                   {status.message && (
-                    <div className={`p-4 rounded-lg text-sm font-medium ${status.type === "success" ? "bg-primary/10 text-primary border border-primary/20" : "bg-danger/10 text-danger border border-danger/20"
-                      }`}>
+                    <div
+                      role="alert"
+                      className={`p-4 rounded-lg text-sm font-medium ${status.type === "success" ? "bg-primary/10 text-primary border border-primary/20" : "bg-danger/10 text-danger border border-danger/20"
+                        }`}
+                    >
                       {status.message}
                     </div>
                   )}
