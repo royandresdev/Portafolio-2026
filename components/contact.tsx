@@ -11,12 +11,15 @@ import { useState } from "react";
 const ContactSchema = Yup.object().shape({
   nombre: Yup.string()
     .min(2, "Demasiado corto")
+    .max(100, "Nombre demasiado largo")
     .required("El nombre es requerido"),
   correo: Yup.string()
     .email("Correo inválido")
+    .max(100, "Correo demasiado largo")
     .required("El correo es requerido"),
   mensaje: Yup.string()
     .min(10, "Mensaje demasiado corto")
+    .max(2000, "El mensaje no puede exceder los 2000 caracteres")
     .required("El mensaje es requerido"),
 });
 
@@ -86,7 +89,7 @@ export function Contact() {
         <AnimateOnScroll delay={200} className="h-full">
           <div className="bg-black-3 border border-gray-2 rounded-[32px] px-8 py-16 backdrop-blur-[2px] custom-shadow w-full">
             <Formik
-              initialValues={{ nombre: "", correo: "", mensaje: "" }}
+              initialValues={{ nombre: "", correo: "", mensaje: "", _hp_phone: "" }}
               validationSchema={ContactSchema}
               onSubmit={async (values, { resetForm, setSubmitting }) => {
                 setStatus({ type: null, message: null });
@@ -107,6 +110,11 @@ export function Contact() {
             >
               {({ isSubmitting }) => (
                 <Form className="flex flex-col gap-6 w-full">
+                  {/* Honeypot Field - Invisible para humanos */}
+                  <div className="hidden" aria-hidden="true">
+                    <Field name="_hp_phone" type="text" tabIndex="-1" autoComplete="off" />
+                  </div>
+
                   {/* Input Nombre */}
                   <div className="flex flex-col gap-2.5">
                     <label htmlFor="nombre" className="text-gray-4 text-base font-semibold uppercase">
