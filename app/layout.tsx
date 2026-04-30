@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, DM_Sans } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,17 +22,24 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // Ajusta según tus necesidades
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" />
       </head>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`${geistSans.variable} ${dmSans.variable} antialiased font-dm-sans`}>
         {children}
       </body>
     </html>
