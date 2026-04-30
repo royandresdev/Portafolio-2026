@@ -22,12 +22,12 @@ export function Hero() {
         {/* H1: fade up con delay 100ms */}
         <h1 className="text-2xl lg:text-5xl/snug font-bold animate-fade-up delay-100">
           <span className="text-primary">ROY HUAMAN</span> <br />
-          <span className="text-gray-5">FULLSTACK DEVELOPER</span>
+          <span className="text-gray-5">DESARROLLADOR WEB</span>
         </h1>
 
         {/* Párrafo: fade up con delay 200ms */}
         <p className="text-gray-4 font-medium lg:text-lg animate-fade-up delay-200">
-          ¡Bienvenido! Soy un entusiasta de la programación. Desde siempre me ha fascinado entender cómo funciona el software. Al codificar, siento que tengo la libertad de explotar al máximo mi creatividad, creando código sólido y profesional.
+          ¡Bienvenido! Soy un entusiasta de la programación. Ayudo a empresas y emprendedores a digitalizar sus ideas mediante aplicaciones web robustas, escalables y optimizadas para SEO.
         </p>
 
         {/* Iconos sociales: fade up con delay 300ms + efectos hover + float */}

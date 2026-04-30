@@ -2,12 +2,15 @@ import { Icon } from "@iconify/react";
 import { AnimateOnScroll } from "./animate-on-scroll";
 
 const techs = [
+  { name: "NextJS", icon: "skill-icons:nextjs-dark" },
   { name: "React", icon: "logos:react" },
   { name: "Tailwind", icon: "logos:tailwindcss-icon" },
   { name: "Redux", icon: "logos:redux" },
-  { name: "Javascript", icon: "logos:javascript" },
+  { name: "Typescript", icon: "devicon:typescript" },
   { name: "HTML", icon: "vscode-icons:file-type-html" },
   { name: "CSS", icon: "devicon:css" },
+  { name: "Figma", icon: "material-icon-theme:figma" },
+  { name: "Supabase", icon: "skill-icons:supabase-dark" }
 ];
 
 export function Skills() {
