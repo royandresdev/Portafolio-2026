@@ -79,6 +79,7 @@ export function Header() {
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
+                  aria-current={activeSection === link.id ? "location" : undefined}
                   className={`transition-colors hover:text-primary ${activeSection === link.id ? "text-primary" : ""
                     }`}
                 >
@@ -89,8 +90,10 @@ export function Header() {
           </ul>
         </nav>
         <button
-          className="lg:hidden p-2 -mr-2"
-          aria-label="Abrir menú de navegación"
+          className="lg:hidden p-2 -mr-2 focus-visible:outline-2 focus-visible:outline-primary outline-offset-4 rounded-md"
+          aria-label={isMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
           onClick={() => setIsMenuOpen(true)}
         >
           <Icon className="size-8 text-primary" icon="material-symbols:menu-rounded" />
