@@ -11,6 +11,7 @@
 - **Backend Logic:** Server Actions de Next.js
 - **Seguridad:** [Upstash Redis](https://upstash.com/) (Rate Limiting)
 - **Correos:** [Resend](https://resend.com/) + [React Email](https://react.email/)
+- **Diseño:** [Figma Design System](https://www.figma.com/design/2uNE6FVu4m73Du7ka7U07W/Portafolio?node-id=24-32&t=PAUoyeVJmJHKbklz-1)
 
 ## ✨ Características Destacadas
 
