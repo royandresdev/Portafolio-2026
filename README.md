@@ -2,6 +2,9 @@
 
 ¡Bienvenido a mi portafolio profesional! Esta es una aplicación web de alto rendimiento construida con las tecnologías más modernas del ecosistema web, enfocada en la velocidad, seguridad y una experiencia de usuario excepcional.
 
+<img width="1912" height="948" alt="image" src="https://github.com/user-attachments/assets/4ae50c8d-369e-43c4-87e2-1620080255d3" />
+
+
 ## 🛠️ Tecnologías Core
 
 - **Framework:** [Next.js 15+](https://nextjs.org/) (App Router)
