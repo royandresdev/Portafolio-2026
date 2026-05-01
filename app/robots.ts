@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/protected/', '/auth/'],
     },
+    sitemap: 'https://www.royandresdev.com/sitemap.xml',
   }
 }

@@ -4,15 +4,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.royandresdev.com"),
-  title: "Roy Huaman | Fullstack Developer",
-  description: "Portafolio profesional de Roy Huaman, Fullstack Developer apasionado por el software sólido y profesional.",
+  title: "Roy Huaman | royandresdev - Fullstack Developer",
+  description: "Portafolio profesional de Roy Huaman (royandresdev), Fullstack Developer apasionado por crear software sólido, escalable y optimizado.",
   icons: {
     icon: "/Logo.svg",
   },
   alternates: {
     canonical: "/",
   },
-  keywords: ["Fullstack Developer", "React", "Next.js", "Roy Huaman", "Portafolio"],
+  keywords: ["royandresdev", "Roy Huaman", "Fullstack Developer", "Desarrollador Web", "React", "Next.js"],
   authors: [{ name: "Roy Huaman" }],
 };
 
