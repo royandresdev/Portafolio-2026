@@ -2,7 +2,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* Space for the fixed header */
+  scroll-padding-top: 5rem;
+  /* Space for the fixed header */
 }
 
 @theme {
@@ -26,11 +27,9 @@ html {
 
 @utility background {
   background:
-    linear-gradient(
-      136deg,
+    linear-gradient(136deg,
       rgba(0, 255, 163, 0.05) 0%,
-      rgba(0, 255, 163, 0) 100%
-    ),
+      rgba(0, 255, 163, 0) 100%),
     #151515;
 }
 
@@ -47,8 +46,9 @@ html {
 }
 
 h2 {
-  @apply text-2xl lg:text-5xl font-bold text-primary;
+  @apply text-2xl lg:text-5xl font-bold;
 }
+
 button {
   @apply cursor-pointer;
 }
@@ -59,6 +59,7 @@ button {
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -70,6 +71,7 @@ button {
     opacity: 0;
     transform: translateX(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -130,6 +132,7 @@ button {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -151,9 +154,11 @@ button {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -161,4 +166,14 @@ button {
 
 @utility animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* ── Override Autocomplete Input Styles (Autofill) ── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #151515 inset !important;
+  -webkit-text-fill-color: #eaeaea !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

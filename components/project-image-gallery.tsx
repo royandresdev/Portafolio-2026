@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Icon } from "@iconify/react";
 
 interface ProjectImageGalleryProps {
@@ -22,13 +22,13 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
     setCurrentIndex(0);
   };
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  }, [images.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+  }, [images.length]);
 
   // Manejo de eventos de teclado y scroll lock
   useEffect(() => {
@@ -53,12 +53,12 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = originalStyle;
     };
-  }, [isOpen, images.length]);
+  }, [isOpen, handleNext, handlePrev]);
 
   return (
     <>
       {/* Contenedor de la Imagen de Portada con Hover */}
-      <div 
+      <div
         onClick={handleOpen}
         className="w-full aspect-video relative overflow-hidden rounded-t-4xl group cursor-pointer"
       >
@@ -69,7 +69,7 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        
+
         {/* Overlay de Hover (Indicador Visual) */}
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
           <div className="bg-primary/20 backdrop-blur-md border border-primary/30 p-4 rounded-full text-primary scale-75 group-hover:scale-100 transition-all duration-300 shadow-[0_0_15px_rgba(0,255,153,0.35)]">
@@ -80,7 +80,7 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
 
       {/* Lightbox / Modal de la Galería */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 md:p-6 transition-opacity duration-300 ease-out"
           onClick={() => setIsOpen(false)}
         >
@@ -128,7 +128,7 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
             )}
 
             {/* Imagen Activa */}
-            <div 
+            <div
               className="relative w-full max-w-4xl h-full max-h-[50vh] md:max-h-[65vh] rounded-2xl overflow-hidden border border-black-3 shadow-2xl transition-transform duration-300 ease-out"
               onClick={(e) => e.stopPropagation()}
             >
@@ -144,7 +144,7 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
           </div>
 
           {/* Sección Inferior: Contador y Miniaturas */}
-          <div 
+          <div
             className="w-full flex flex-col items-center gap-3 select-none mt-4"
             onClick={(e) => e.stopPropagation()}
           >
@@ -159,11 +159,10 @@ export function ProjectImageGallery({ name, coverImage, galleryImages = [] }: Pr
                   <button
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
-                    className={`relative w-16 h-10 md:w-20 md:h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 flex-shrink-0 cursor-pointer ${
-                      idx === currentIndex
+                    className={`relative w-16 h-10 md:w-20 md:h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 cursor-pointer ${idx === currentIndex
                         ? "border-primary scale-105 shadow-[0_0_10px_rgba(0,255,153,0.4)]"
                         : "border-black-3 opacity-50 hover:opacity-100 hover:scale-102 hover:border-gray-2"
-                    }`}
+                      }`}
                   >
                     <Image
                       src={img}
