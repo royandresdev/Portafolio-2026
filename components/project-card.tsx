@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Icon } from "@iconify/react";
+import { ProjectImageGallery } from "./project-image-gallery";
 
 interface ProjectCardProps {
   id: number | string;
@@ -7,6 +7,7 @@ interface ProjectCardProps {
   name: string;
   description: string;
   image: string;
+  gallery_images?: string[];
   technologies: string[];
   linkDemo: string;
   linkRepo: string;
@@ -14,18 +15,10 @@ interface ProjectCardProps {
   typeApp: string;
 }
 
-export function ProjectCard({ name, description, image, technologies, linkDemo, linkRepo, typeApp }: ProjectCardProps) {
+export function ProjectCard({ name, description, image, gallery_images, technologies, linkDemo, linkRepo, typeApp }: ProjectCardProps) {
   return (
-    <article className="w-full h-full bg-black-3 rounded-[32px] pb-6 custom-shadow flex flex-col border border-black-3">
-      <div className="w-full aspect-video relative overflow-hidden rounded-t-[32px]">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-      </div>
+    <article className="w-full h-full bg-black-3 rounded-4xl pb-6 custom-shadow flex flex-col border border-black-3">
+      <ProjectImageGallery name={name} coverImage={image} galleryImages={gallery_images} />
       <div className="p-6 space-y-4">
         <h3 className="text-gray-5 uppercase font-bold text-xl lg:text-2xl">{name}</h3>
         <p className="text-primary font-semibold">{typeApp}</p>
