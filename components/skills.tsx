@@ -21,7 +21,7 @@ export function Skills() {
         <span className="caption mb-4">- MIS HABILIDADES</span>
       </AnimateOnScroll>
       <AnimateOnScroll delay={100}>
-        <h2 className="mb-4">EDUCACIÓN Y HABILIDADES</h2>
+        <h2 className="mb-4 text-primary">EDUCACIÓN Y HABILIDADES</h2>
       </AnimateOnScroll>
       <AnimateOnScroll delay={200}>
         <p className="text-gray-4 mb-16">
