@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
 import { Icon } from "@iconify/react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
@@ -124,13 +123,6 @@ export function LoginForm({ className, ...props }: LoginFormProps) {
             >
               {formik.isSubmitting ? "ACCEDIENDO AL SISTEMA..." : "ACCEDER AL SISTEMA"}
             </button>
-
-            <Link
-              href="/auth/forgot-password"
-              className="text-center block text-[11px] font-bold tracking-[1.2px] text-[#b9cbbd] hover:text-primary transition-colors uppercase"
-            >
-              ¿OLVIDASTE TU CONTRASEÑA?
-            </Link>
           </div>
 
         </form>
