@@ -1,6 +1,7 @@
 import { getRelativeTimeString } from "@/lib/date";
 import Link from "next/link";
 import { DeleteProjectButton } from "./delete-project-button";
+import Image from "next/image";
 
 interface Project {
   id: number | string;
@@ -27,10 +28,12 @@ export function AdminProjectRow({ project }: AdminProjectRowProps) {
         {/* Miniatura de Imagen de Portada */}
         <div className="bg-black flex items-center justify-center overflow-clip rounded-[2px] size-12 shrink-0 border border-gray-2/20">
           {project.image ? (
-            <img
+            <Image
               alt={project.name}
               className="object-cover size-full opacity-60 hover:opacity-80 transition-opacity duration-300"
               src={project.image}
+              width={48}
+              height={48}
             />
           ) : (
             <div className="size-full bg-black-2 flex items-center justify-center text-[10px] text-gray-4">

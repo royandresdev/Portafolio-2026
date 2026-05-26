@@ -3,7 +3,7 @@ import { ProjectService, sanitizeFilename, getPathFromUrl } from "@/services/pro
 import { SupabaseClient } from "@supabase/supabase-js";
 
 describe("Servicios: ProjectService", () => {
-  let mockSupabase: any;
+  let mockSupabase: SupabaseClient;
 
   beforeEach(() => {
     vi.clearAllMocks();

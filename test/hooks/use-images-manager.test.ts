@@ -36,7 +36,7 @@ describe("Hook: useImagesManager", () => {
     act(() => {
       result.current.handleCoverChange({
         target: { files: [file] },
-      } as any);
+      } as unknown as React.ChangeEvent<HTMLInputElement>);
     });
 
     expect(result.current.coverFile).toBe(file);
@@ -51,7 +51,7 @@ describe("Hook: useImagesManager", () => {
     act(() => {
       result.current.handleGalleryChange({
         target: { files: [file1, file2] },
-      } as any);
+      } as unknown as React.ChangeEvent<HTMLInputElement>);
     });
 
     expect(result.current.galleryFiles).toEqual([file1, file2]);
@@ -65,7 +65,7 @@ describe("Hook: useImagesManager", () => {
     act(() => {
       result.current.handleGalleryChange({
         target: { files: [file1] },
-      } as any);
+      } as unknown as React.ChangeEvent<HTMLInputElement>);
     });
 
     expect(result.current.galleryFiles.length).toBe(1);

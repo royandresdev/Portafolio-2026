@@ -62,7 +62,7 @@ export function DeleteProjectButton({ projectId, projectName }: DeleteProjectBut
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-bold text-gray-5">¿Eliminar proyecto?</h3>
                 <p className="text-sm text-gray-4 leading-relaxed">
-                  Estás a punto de eliminar el proyecto <strong className="text-white">"{projectName}"</strong>. Esta acción borrará el registro de forma permanente de la base de datos y eliminará todas sus imágenes de portada y galería en Supabase Storage.
+                  Estás a punto de eliminar el proyecto <strong className="text-white">&quot;{projectName}&quot;</strong>. Esta acción borrará el registro de forma permanente de la base de datos y eliminará todas sus imágenes de portada y galería en Supabase Storage.
                 </p>
               </div>
             </div>

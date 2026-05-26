@@ -9,7 +9,7 @@ vi.mock("@/lib/date", () => ({
 
 // Mock del botón de borrado para aislar las pruebas de la fila
 vi.mock("@/app/admin/projects/components/delete-project-button", () => ({
-  DeleteProjectButton: ({ projectId, projectName }: { projectId: any; projectName: string }) => (
+  DeleteProjectButton: ({ projectId, projectName }: { projectId: number | string; projectName: string }) => (
     <button data-testid={`delete-btn-${projectId}`}>Delete {projectName}</button>
   ),
 }));
@@ -34,7 +34,7 @@ describe("Componente: AdminProjectRow", () => {
 
     const img = screen.getByRole("img", { name: /Proyecto de Test/i });
     expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute("src", "https://example.com/image.png");
+    expect(img.getAttribute("src")).toContain("https%3A%2F%2Fexample.com%2Fimage.png");
   });
 
   it("debe mostrar texto alternativo cuando la imagen de portada no está definida", () => {

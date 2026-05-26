@@ -1,4 +1,5 @@
 import { Image as ImageIcon, Trash2 } from "lucide-react";
+import Image from "next/image";
 
 interface VisualsSectionProps {
   isSubmitting: boolean;
@@ -48,10 +49,12 @@ export function VisualsSection({
 
         {coverPreview && (
           <div className="bg-black-2 p-2 rounded border border-gray-2/20 relative aspect-video flex items-center justify-center overflow-hidden">
-            <img
+            <Image
               alt="Portada preview"
               className="object-cover size-full rounded"
               src={coverPreview}
+              fill
+              unoptimized
             />
           </div>
         )}
@@ -83,10 +86,12 @@ export function VisualsSection({
                 key={idx}
                 className="bg-black-2 p-1 rounded border border-gray-2/20 relative aspect-square flex items-center justify-center overflow-hidden group"
               >
-                <img
+                <Image
                   alt={`Galería preview ${idx}`}
                   className="object-cover size-full rounded"
                   src={preview}
+                  fill
+                  unoptimized
                 />
                 <button
                   type="button"

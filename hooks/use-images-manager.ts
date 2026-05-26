@@ -31,7 +31,7 @@ export function useImagesManager({
   // por referencias de arrays de JS recreadas en cada renderizado.
   const galleryJoin = initialGallery?.join(",") || "";
   useEffect(() => {
-    setGalleryPreviews(initialGallery || []);
+    setGalleryPreviews(galleryJoin ? galleryJoin.split(",") : []);
   }, [galleryJoin]);
 
   // Manejo de carga local de la portada

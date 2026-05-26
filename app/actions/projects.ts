@@ -3,9 +3,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { ProjectService, getPathFromUrl, ProjectInput } from "@/services/projects";
+import { SupabaseClient } from "@supabase/supabase-js";
 
 // Validar que el usuario esté autenticado
-async function validateAuth(supabase: any) {
+async function validateAuth(supabase: SupabaseClient) {
   const { data: { user }, error } = await supabase.auth.getUser();
   if (error || !user) {
     throw new Error("No autorizado para realizar esta acción. Inicie sesión nuevamente.");
@@ -27,9 +28,9 @@ export async function createProjectAction(projectInput: ProjectInput) {
     revalidatePath("/");
     
     return { success: true, data };
-  } catch (err: any) {
+  } catch (err) {
     console.error("Error en Server Action createProjectAction:", err);
-    return { success: false, error: err.message || "Error al crear el proyecto" };
+    return { success: false, error: err instanceof Error ? err.message : "Error al crear el proyecto" };
   }
 }
 
@@ -47,9 +48,9 @@ export async function updateProjectAction(id: number | string, projectInput: Par
     revalidatePath("/");
     
     return { success: true, data };
-  } catch (err: any) {
+  } catch (err) {
     console.error("Error en Server Action updateProjectAction:", err);
-    return { success: false, error: err.message || "Error al actualizar el proyecto" };
+    return { success: false, error: err instanceof Error ? err.message : "Error al actualizar el proyecto" };
   }
 }
 
@@ -95,8 +96,8 @@ export async function deleteProjectAction(id: number | string) {
     revalidatePath("/");
     
     return { success: true, data };
-  } catch (err: any) {
+  } catch (err) {
     console.error("Error en Server Action deleteProjectAction:", err);
-    return { success: false, error: err.message || "Error al eliminar el proyecto" };
+    return { success: false, error: err instanceof Error ? err.message : "Error al eliminar el proyecto" };
   }
 }
