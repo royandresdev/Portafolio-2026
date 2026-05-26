@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import { Plus, Trash2, LogOut, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { Plus, Trash2 } from "lucide-react";
 
 // Función para formatear fechas relativas tal como en el diseño de Figma (en inglés)
 function getRelativeTimeString(dateString: string | Date): string {
@@ -52,38 +51,7 @@ export default async function AdminProjectsPage() {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col">
-      {/* Barra de Navegación Superior */}
-      <header className="w-full border-b border-gray-2/20 backdrop-blur-md bg-black-1/40 py-4 px-6 md:px-12 flex items-center justify-between z-10">
-        <Link
-          href="/"
-          className="text-gray-4 hover:text-[#00ff99] text-xs font-semibold uppercase tracking-widest transition-colors duration-200 flex items-center gap-2"
-        >
-          <ArrowLeft className="size-4" />
-          <span>Volver al sitio</span>
-        </Link>
-
-        {/* Formulario de Cierre de Sesión (Server Action) */}
-        <form
-          action={async () => {
-            "use server";
-            const supabase = await createClient();
-            await supabase.auth.signOut();
-            redirect("/auth/login");
-          }}
-        >
-          <button
-            type="submit"
-            className="text-gray-4 hover:text-[#eb5757] text-xs font-semibold uppercase tracking-widest transition-colors duration-200 flex items-center gap-2 cursor-pointer"
-          >
-            <LogOut className="size-4" />
-            <span>Cerrar Sesión</span>
-          </button>
-        </form>
-      </header>
-
-      {/* Contenido Principal */}
-      <main className="flex-1 w-full max-w-[1280px] mx-auto px-6 py-12 md:py-16 md:px-12 flex flex-col gap-12">
+    <main className="flex-1 w-full max-w-[1280px] mx-auto px-6 py-12 md:py-16 md:px-12 flex flex-col gap-12">
         
         {/* Encabezado Principal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
@@ -172,6 +140,5 @@ export default async function AdminProjectsPage() {
         </div>
 
       </main>
-    </div>
   );
 }
