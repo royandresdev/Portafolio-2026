@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { Plus, Trash2 } from "lucide-react";
+import Link from "next/link";
 
 // Función para formatear fechas relativas tal como en el diseño de Figma (en inglés)
 function getRelativeTimeString(dateString: string | Date): string {
@@ -63,10 +64,13 @@ export default async function AdminProjectsPage() {
               Panel de administración de<br className="hidden md:inline" /> proyectos
             </h1>
           </div>
-          <button className="bg-[#00ff99] hover:bg-[#00ff99]/90 text-[#242424] font-bold px-6 py-4 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200 w-full md:w-auto shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] select-none">
+          <Link
+            href="/admin/projects/new"
+            className="bg-[#00ff99] hover:bg-[#00ff99]/90 text-[#242424] font-bold px-6 py-4 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200 w-full md:w-auto shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] select-none text-center"
+          >
             <Plus className="size-5 stroke-[3px]" />
             <span className="text-base">Agregar proyecto</span>
-          </button>
+          </Link>
         </div>
 
         {/* Listado de Proyectos */}
@@ -120,9 +124,12 @@ export default async function AdminProjectsPage() {
                   {/* Acciones */}
                   <div className="flex items-center justify-end gap-3 sm:col-span-4 md:col-span-4">
                     {/* Botón Editar */}
-                    <button className="border border-[rgba(0,255,163,0.2)] hover:border-[#00ff99] hover:bg-[#00ff99]/10 text-[#00ff99] font-semibold text-sm px-[17px] py-[8px] rounded-[2px] transition-all duration-200 cursor-pointer select-none">
+                    <Link
+                      href={`/admin/projects/${project.id}/edit`}
+                      className="border border-[rgba(0,255,163,0.2)] hover:border-[#00ff99] hover:bg-[#00ff99]/10 text-[#00ff99] font-semibold text-sm px-[17px] py-[8px] rounded-[2px] transition-all duration-200 cursor-pointer select-none text-center"
+                    >
                       Editar
-                    </button>
+                    </Link>
 
                     {/* Botón Eliminar */}
                     <button className="hover:bg-[#eb5757]/10 p-2 rounded-[2px] transition-all duration-200 group cursor-pointer select-none">
