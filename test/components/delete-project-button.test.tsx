@@ -1,10 +1,10 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { DeleteProjectButton } from "@/app/admin/projects/components/delete-project-button";
-import * as actions from "@/app/actions/delete-project";
+import * as actions from "@/app/actions/projects";
 
-vi.mock("@/app/actions/delete-project", () => ({
-  deleteProject: vi.fn(),
+vi.mock("@/app/actions/projects", () => ({
+  deleteProjectAction: vi.fn(),
 }));
 
 describe("Componente: DeleteProjectButton", () => {
@@ -56,7 +56,7 @@ describe("Componente: DeleteProjectButton", () => {
 
   it("debe llamar a deleteProject y cerrar el modal si se confirma la eliminación", async () => {
     // Simulamos respuesta exitosa de la Server Action
-    vi.mocked(actions.deleteProject).mockResolvedValue({ success: true });
+    vi.mocked(actions.deleteProjectAction).mockResolvedValue({ success: true });
 
     render(<DeleteProjectButton {...props} />);
 
@@ -68,7 +68,7 @@ describe("Componente: DeleteProjectButton", () => {
     fireEvent.click(confirmBtn);
 
     // Verificamos que se llame al Server Action con el ID adecuado
-    expect(actions.deleteProject).toHaveBeenCalledWith(123);
+    expect(actions.deleteProjectAction).toHaveBeenCalledWith(123);
 
     // El modal se cierra tras la confirmación exitosa
     await waitFor(() => {
@@ -78,7 +78,7 @@ describe("Componente: DeleteProjectButton", () => {
 
   it("debe mostrar mensaje de error si la acción de eliminación falla", async () => {
     // Simulamos error de la Server Action
-    vi.mocked(actions.deleteProject).mockRejectedValue(new Error("Error al borrar de Supabase"));
+    vi.mocked(actions.deleteProjectAction).mockRejectedValue(new Error("Error al borrar de Supabase"));
 
     render(<DeleteProjectButton {...props} />);
 

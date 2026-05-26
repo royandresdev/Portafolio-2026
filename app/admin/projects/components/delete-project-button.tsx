@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Trash2, AlertTriangle, Loader2 } from "lucide-react";
-import { deleteProject } from "@/app/actions/delete-project";
+import { deleteProjectAction as deleteProject } from "@/app/actions/projects";
 
 interface DeleteProjectButtonProps {
   projectId: number | string;
