@@ -47,8 +47,8 @@ export function LoginForm({ className, ...props }: LoginFormProps) {
         });
         if (error) throw new Error(error.message);
 
-        // Redirigir temporalmente al Home Page
-        router.push("/");
+        // Redirigir al panel de administración de proyectos
+        router.push("/admin/projects");
       } catch (err: unknown) {
         setError(err instanceof Error ? err.message : "Credenciales inválidas");
       } finally {

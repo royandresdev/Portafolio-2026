@@ -58,7 +58,7 @@ describe("Componente: LoginForm", () => {
     expect(await screen.findByText(/el formato del correo es inválido/i)).toBeInTheDocument();
   });
 
-  it("debe llamar a la API de Supabase y redirigir al Home Page al ingresar con credenciales válidas", async () => {
+  it("debe llamar a la API de Supabase y redirigir al panel de administración al ingresar con credenciales válidas", async () => {
     mockSignInWithPassword.mockResolvedValue({ error: null });
 
     render(<LoginForm />);
@@ -78,7 +78,7 @@ describe("Componente: LoginForm", () => {
         email: "admin@test.com",
         password: "password123",
       });
-      expect(mockPush).toHaveBeenCalledWith("/");
+      expect(mockPush).toHaveBeenCalledWith("/admin/projects");
     });
   });
 
