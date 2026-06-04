@@ -14,6 +14,19 @@ export const metadata: Metadata = {
   },
   keywords: ["royandresdev", "Roy Huaman", "Fullstack Developer", "Desarrollador Web", "React", "Next.js"],
   authors: [{ name: "Roy Huaman" }],
+  openGraph: {
+    title: "Roy Huaman | royandresdev - Fullstack Developer",
+    description: "Portafolio profesional de Roy Huaman (royandresdev), Fullstack Developer apasionado por crear software sólido, escalable y optimizado.",
+    url: "https://www.royandresdev.com",
+    siteName: "Roy Huaman | royandresdev",
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Roy Huaman | royandresdev - Fullstack Developer",
+    description: "Portafolio profesional de Roy Huaman (royandresdev), Fullstack Developer apasionado por crear software sólido, escalable y optimizado.",
+  },
 };
 
 const geistSans = Geist({
