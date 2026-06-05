@@ -105,7 +105,7 @@ export function useProjectSubmit({ project }: UseProjectSubmitProps) {
         projectId = result.data.id;
       } else {
         // Si estamos editando y el nombre cambió, renombrar los archivos existentes
-        if (project.id) {
+        if (project.id !== undefined && project.id !== null) {
           const renamed = await ProjectService.renameImages(
             supabase,
             project.id,
@@ -118,7 +118,7 @@ export function useProjectSubmit({ project }: UseProjectSubmitProps) {
         }
       }
 
-      if (!projectId) throw new Error("No se pudo obtener el ID del proyecto");
+      if (projectId === undefined || projectId === null) throw new Error("No se pudo obtener el ID del proyecto");
 
       // ── 2. SUBIR NUEVOS ARCHIVOS A STORAGE (Lado del cliente) ──
       let coverUrl = isEditMode ? project?.image || "" : "";
