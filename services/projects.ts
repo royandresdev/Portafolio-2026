@@ -6,7 +6,7 @@ export interface ProjectInput {
   technologies: string[];
   typeApp: string;
   linkDemo: string;
-  linkRepo: string;
+  linkRepo?: string | null;
   linkFigma?: string | null;
   image?: string;
   gallery_images?: string[];

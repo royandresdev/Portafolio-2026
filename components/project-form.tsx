@@ -19,7 +19,7 @@ interface ProjectData {
   gallery_images?: string[];
   technologies: string[];
   linkDemo: string;
-  linkRepo: string;
+  linkRepo?: string | null;
   linkFigma?: string;
   typeApp: string;
 }
@@ -54,7 +54,7 @@ export function ProjectForm({ project }: ProjectFormProps) {
     description: Yup.string().required("La descripción es requerida"),
     typeApp: Yup.string().required("El tipo de aplicación es requerido"),
     linkDemo: Yup.string().url("Debe ser una URL válida").required("La URL de demostración es requerida"),
-    linkRepo: Yup.string().url("Debe ser una URL válida").required("La URL del repositorio es requerida"),
+    linkRepo: Yup.string().url("Debe ser una URL válida").nullable(),
     linkFigma: Yup.string().url("Debe ser una URL válida").nullable(),
   });
 
