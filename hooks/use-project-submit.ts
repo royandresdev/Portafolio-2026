@@ -13,7 +13,7 @@ interface ProjectData {
   gallery_images?: string[];
   technologies: string[];
   linkDemo: string;
-  linkRepo: string;
+  linkRepo?: string | null;
   linkFigma?: string;
   typeApp: string;
 }
@@ -73,7 +73,7 @@ export function useProjectSubmit({ project }: UseProjectSubmitProps) {
     description: string;
     typeApp: string;
     linkDemo: string;
-    linkRepo: string;
+    linkRepo?: string | null;
     linkFigma?: string;
   }) => {
     setIsSubmitting(true);
@@ -94,7 +94,7 @@ export function useProjectSubmit({ project }: UseProjectSubmitProps) {
           technologies: techArray,
           typeApp: values.typeApp,
           linkDemo: values.linkDemo,
-          linkRepo: values.linkRepo,
+          linkRepo: values.linkRepo || null,
           linkFigma: values.linkFigma || null,
           image: "",
           gallery_images: [],
@@ -152,7 +152,7 @@ export function useProjectSubmit({ project }: UseProjectSubmitProps) {
         technologies: techArray,
         typeApp: values.typeApp,
         linkDemo: values.linkDemo,
-        linkRepo: values.linkRepo,
+        linkRepo: values.linkRepo || null,
         linkFigma: values.linkFigma || null,
         image: coverUrl,
         gallery_images: uploadedGalleryUrls,

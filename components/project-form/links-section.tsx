@@ -3,7 +3,7 @@ import { Globe, Github, Palette } from "lucide-react";
 
 interface FormValues {
   linkDemo: string;
-  linkRepo: string;
+  linkRepo?: string;
   linkFigma: string;
 }
 
@@ -54,7 +54,7 @@ export function LinksSection({ isSubmitting }: LinksSectionProps) {
         <div className="flex items-center gap-2">
           <Github className="size-4 text-gray-4" />
           <label htmlFor="linkRepo" className="text-gray-4 text-label-form">
-            URL del Repositorio
+            URL del Repositorio (Opcional)
           </label>
         </div>
         <input

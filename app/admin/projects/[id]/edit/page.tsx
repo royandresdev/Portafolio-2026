@@ -30,7 +30,7 @@ export default async function EditProjectPage({ params }: EditProjectPageProps) 
     gallery_images: project.gallery_images || [],
     technologies: project.technologies || [],
     linkDemo: project.linkDemo,
-    linkRepo: project.linkRepo,
+    linkRepo: project.linkRepo || "",
     linkFigma: project.linkFigma || "",
     typeApp: project.typeApp,
   };

@@ -10,8 +10,8 @@ interface ProjectCardProps {
   gallery_images?: string[];
   technologies: string[];
   linkDemo: string;
-  linkRepo: string;
-  linkFigma?: string;
+  linkRepo?: string | null;
+  linkFigma?: string | null;
   typeApp: string;
 }
 
@@ -25,7 +25,7 @@ export function ProjectCard({ name, description, image, gallery_images, technolo
         <Tags technologies={technologies} />
         <p className="text-gray-4">{description}</p>
       </div>
-      <div className="grid grid-cols-2 gap-2 px-6 mt-auto">
+      <div className={`grid ${linkRepo ? "grid-cols-2" : "grid-cols-1"} gap-2 px-6 mt-auto`}>
         <a
           href={linkDemo}
           target="_blank"
@@ -35,15 +35,17 @@ export function ProjectCard({ name, description, image, gallery_images, technolo
         >
           <Icon icon="bi:easel-fill" fontSize={16} /> En vivo
         </a>
-        <a
-          href={linkRepo}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Ver repositorio de código del proyecto ${name}`}
-          className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold custom-shadow text-center hover:bg-gray-2 transition-colors flex items-center justify-center gap-2"
-        >
-          <Icon icon="bi:github" fontSize={16} /> Repositorio
-        </a>
+        {linkRepo && (
+          <a
+            href={linkRepo}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Ver repositorio de código del proyecto ${name}`}
+            className="py-3 bg-gray-1 border border-gray-2 rounded-md text-gray-5 text-sm font-bold custom-shadow text-center hover:bg-gray-2 transition-colors flex items-center justify-center gap-2"
+          >
+            <Icon icon="bi:github" fontSize={16} /> Repositorio
+          </a>
+        )}
       </div>
     </article>
   )
